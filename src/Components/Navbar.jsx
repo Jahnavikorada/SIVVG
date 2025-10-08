@@ -21,14 +21,16 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isHome]);
 
-  const bgColor = scrolled
+ const bgColor =
+  scrolled || isOpen
     ? "bg-[#4b4d9c] text-white shadow-lg"
     : "bg-transparent text-white";
 
-  const mobileBg = scrolled
+const mobileBg =
+  scrolled || isOpen
     ? "bg-white text-black shadow-lg"
     : "bg-[#4b4d9c] text-white";
-
+    
   const isActive = (path) => location.pathname === path;
   const linkClasses = (path) =>
     `transition-colors duration-200 ${
@@ -62,9 +64,16 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+           <button
+    onClick={() => setIsOpen(!isOpen)}
+    className={`p-2 rounded-md transition-colors ${
+      scrolled || isOpen
+        ? "bg-white text-black"
+        : "bg-[#4b4d9c] text-white"
+    }`}
+  >
+    {isOpen ? <X size={28} /> : <Menu size={28} />}
+  </button>
         </div>
       </div>
 

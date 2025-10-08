@@ -19,21 +19,21 @@ const services = [
     description: "Professional management of your investment portfolio to optimize returns and minimize risks.",
     icon: <TrendingUp className="h-10 w-10 text-emerald-500" />,
     gradient: "from-emerald-500/80 to-emerald-600/80",
-    features: ["Asset allocation", "Diversification strategies", "Regular rebalancing", "Performance tracking"],
+    features: ["Asset allocation","Diversification strategies", "Regular rebalancing", "Understanding market movements"],
   },
   {
-    title: "Trading Advisory",
-    description: "Expert advice on trading strategies and opportunities across various financial markets.",
+    title: "Market Guidance",
+    description: "Clear practical insights and step-by-step support help traders succeed at every level.",
     icon: <LineChart className="h-10 w-10 text-indigo-500" />,
     gradient: "from-indigo-500/80 to-indigo-600/80",
-    features: ["Personalized recommendations", "Entry/exit strategies", "Risk management", "Market updates"],
+    features: ["Smart Risk Management", "Real-Time Clarity", "Stepwise Smart Decisions", "Market updates"],
   },
   {
-    title: "Wealth Management",
-    description: "Comprehensive wealth management services to help you achieve your financial goals.",
+    title: "Capital Growth",
+    description: "Track understand and grow your capital with clarity and confidence.",
     icon: <HandCoins className="h-10 w-10 text-purple-500" />,
     gradient: "from-purple-500/80 to-purple-600/80",
-    features: ["Financial planning", "Retirement solutions", "Store Up Returns", "Estate planning"],
+    features: ["Weekly P&L overview", "Tip-driven growth Awareness", "Clear Decision View", "Goal-focused Strategy"],
   },
 ];
 
@@ -44,6 +44,15 @@ const Assistance = () => {
     <section className="mt-16 flex flex-col items-center justify-center gap-8 p-6 md:p-12 bg-white">
       
       {/* Text */}
+       {/* Image */}
+      <div className="w-full flex justify-center">
+        <img
+          src={promo}
+          alt="Trading Dashboard"
+        className="w-full max-w-5xl h-auto max-h-[600px] rounded shadow-lg mb-4 mt-6 object-cover"
+
+        />
+      </div>
       <div className="w-full text-center">
         <motion.h2
           className="w-full md:w-2/3 lg:w-1/2 mx-auto text-xl md:text-2xl lg:text-3xl font-bold px-4 text-center"
@@ -53,23 +62,14 @@ const Assistance = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.5 }}
         >
-          " SIVVG delivers exceptional trading tips to invest, expertly tailored
-          to help you achieve your financial goals. "
+           “Step into the market with clarity, move forward with confidence, and secure your financial future.” 
         </motion.h2>
       </div>
 
-      {/* Image */}
-      <div className="w-full flex justify-center">
-        <img
-          src={promo}
-          alt="Trading Dashboard"
-        className="w-full max-w-5xl h-auto max-h-[900px] rounded shadow-lg mb-12 mt-2 object-cover"
-
-        />
-      </div>
+     
 
       {/* Services Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 w-full max-w-6xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-x-10 gap-y-10 w-full max-w-6xl">
         {services.map((service, index) => (
           <motion.div
             key={index}

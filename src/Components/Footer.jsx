@@ -1,229 +1,84 @@
-import React, { useState } from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
-} from "react-icons/fa";
-import { Link } from "react-router-dom";
-import Modal from "./Modal";
-import CookieBanner from "./CookieBanner";
+import { Mail, Twitter, Linkedin, Instagram } from "lucide-react";
 
-const Footer = () => {
-  const [openCookie, setOpenCookie] = useState(false);
-  const [openPrivacy, setOpenPrivacy] = useState(false);
-  const [openTerms, setOpenTerms] = useState(false);
-
-  // Cookie modal actions: Accept/Decline
-  const acceptCookies = () => {
-    try { localStorage.setItem("sivvg_cookie_consent", "accepted"); } catch { /* empty */ }
-    setOpenCookie(false);
-  };
-  const declineCookies = () => {
-    try { localStorage.setItem("sivvg_cookie_consent", "declined"); } catch { /* empty */ }
-    setOpenCookie(false);
-  };
-
+export default function Footer() {
   return (
-    <>
-      <footer className="bg-[#4b4d9c] text-white">
-        <div className="bg-[#383a8c] p-6 md:p-12 text-sm">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-left">
-
-            {/* Column 1 - Company */}
-            <div>
-              <h3 className="font-semibold mb-4 text-lg md:text-xl">Company</h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link to="/home" className="hover:text-purple-300 transition">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/about" className="hover:text-purple-300 transition">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/ourassistance" className="hover:text-purple-300 transition">
-                    Our Assistance
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/letstalk" className="hover:text-purple-300 transition">
-                    Let’s Talk
-                  </Link>
-                </li>
-              </ul>
+    <footer className="bg-gradient-to-r from-[#1a1f3c] to-[#0d1128] text-gray-300 px-6 py-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+        
+        {/* Logo & Description */}
+        <div>
+          <div className="flex items-center space-x-2 mb-4">
+            <div className="bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg p-2">
+              
             </div>
-
-            {/* Column 2 - Quick Links */}
-            <div>
-              <h3 className="font-semibold mb-4 text-lg md:text-xl">Quick Links</h3>
-              <ul className="space-y-2">
-                <li>
-                  <button
-                    onClick={() => setOpenCookie(true)}
-                    className="hover:text-purple-300 transition text-left"
-                  >
-                    Cookie Policy
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => setOpenPrivacy(true)}
-                    className="hover:text-purple-300 transition text-left"
-                  >
-                    Privacy Notice
-                  </button>
-                </li>
-                <li>
-                  <button
-                    onClick={() => setOpenTerms(true)}
-                    className="hover:text-purple-300 transition text-left"
-                  >
-                    Terms of Use
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 3 - Location & Contact */}
-            <div>
-              <h3 className="font-semibold mb-4 text-lg md:text-xl">Sivvg Info Tech Pvt. Ltd</h3>
-              <ul className="space-y-3 text-sm sm:text-base">
-                <li className="flex items-start gap-2">
-                  <FaMapMarkerAlt className="mt-1 shrink-0" />
-                  <span>
-                    NH-16, Marikavalasa Rd,<br />
-                    Visakhapatnam, Andhra Pradesh 530048
-                  </span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <FaPhoneAlt className="shrink-0" />
-                  <span>+91 9542992314</span>
-                </li>
-                <li>
-                  SEBI Registration Number - INR0017042821
-                </li>
-              </ul>
-
-              {/* Social Icons */}
-              <div className="flex gap-4 mt-4 justify-start text-2xl sm:text-3xl">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                  <FaFacebookF className="hover:text-blue-300 transition" />
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                  <FaInstagram className="hover:text-pink-300 transition" />
-                </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                  <FaLinkedinIn className="hover:text-blue-400 transition" />
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter className="hover:text-sky-300 transition" />
-                </a>
-              </div>
-            </div>
+            <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
+              SIVVG
+            </h1>
           </div>
-
-          {/* Bottom Text */}
-          <p className="text-center text-xs mt-6 border-t border-white/30 pt-4">
-            © SIVVG, 2025. All rights reserved.
+          <p className="text-gray-400 leading-6">
+            Professional trading tips and investment strategies to maximize your
+            portfolio performance.
           </p>
         </div>
-      </footer>
 
-      {/* Modals */}
-      <Modal
-        open={openCookie}
-        title="Cookie Policy"
-        onClose={() => setOpenCookie(false)}
-        actions={
-          <>
-            <button
-              onClick={declineCookies}
-              className="px-3 py-2 rounded-md bg-transparent border border-gray-300 text-sm hover:bg-gray-100 transition"
+        {/* Navigation */}
+        <div>
+          <h2 className="text-lg font-semibold text-white mb-3">Navigation</h2>
+          <ul className="space-y-2">
+            <li>
+              <a href="/home" className="hover:text-cyan-400 transition">Home</a>
+            </li>
+            <li>
+              <a href="/about" className="hover:text-cyan-400 transition">About</a>
+            </li>
+            <li>
+              <a href="/ourassistance" className="hover:text-cyan-400 transition">Our Assistance</a>
+            </li>
+            <li>
+              <a href="/letstalk" className="hover:text-cyan-400 transition">Let's Talk</a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div>
+          <h2 className="text-lg font-semibold text-white mb-3">Contact</h2>
+          <div className="flex items-center space-x-2 mb-3">
+            <Mail className="w-5 h-5 text-cyan-400" />
+            <a
+              href="mailto:contact@sivvg.com"
+              className="hover:text-cyan-400 transition"
             >
-              Decline
-            </button>
-            <button
-              onClick={acceptCookies}
-              className="px-3 py-2 rounded-md bg-[#4b4d9c] text-white text-sm font-semibold hover:opacity-95 transition"
-            >
-              Accept
-            </button>
-          </>
-        }
-      >
-        <h4 className="font-semibold">How we use cookies</h4>
-        <p>
-          We use cookies to provide site functionality, analyze traffic, and personalise content.
-          You can accept or decline cookies. Declining may affect some features.
-        </p>
+              sivvginfo@gmail.com
+            </a>
+          </div>
+          <p className="text-gray-400">Mon-Fri: 8:30 AM - 4:00 PM </p>
+           
+        </div>
 
-        <h5 className="mt-4 font-semibold">Types of cookies</h5>
-        <ul className="list-disc ml-5">
-          <li>Essential cookies (required for the site to function)</li>
-          <li>Analytics cookies (help us understand usage)</li>
-          <li>Marketing cookies (personalize ads and content)</li>
-        </ul>
+        {/* Follow Us */}
+        <div>
+          <h2 className="text-lg font-semibold text-white mb-3">Follow Us</h2>
+          <div className="flex space-x-5">
+            <a href="#" aria-label="Twitter" className="hover:text-cyan-400 transition">
+              <Twitter className="w-6 h-6" />
+            </a>
+            <a href="#" aria-label="LinkedIn" className="hover:text-blue-400 transition">
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a href="#" aria-label="Instagram" className="hover:text-pink-400 transition">
+              <Instagram className="w-6 h-6" />
+            </a>
+          </div>
+        </div>
+      </div>
 
-        <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-          (Replace this with your official cookie policy text.)
+      {/* Divider */}
+      <div className="border-t border-gray-700 mt-10 pt-6 text-center">
+        <p className="text-gray-500 text-sm">
+          © 2025 SIVVG Trading. All rights reserved.
         </p>
-      </Modal>
-
-      <Modal
-        open={openPrivacy}
-        title="Privacy Notice"
-        onClose={() => setOpenPrivacy(false)}
-        actions={
-          <button
-            onClick={() => setOpenPrivacy(false)}
-            className="px-3 py-2 rounded-md bg-[#4b4d9c] text-white text-sm font-semibold hover:opacity-95 transition"
-          >
-            Close
-          </button>
-        }
-      >
-        <h4 className="font-semibold">Privacy Notice</h4>
-        <p>
-          We respect your privacy. We collect only the information necessary to provide our services,
-          and we do not share personal data except as described in this notice. (Add full privacy text.)
-        </p>
-        <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
-          (Replace this with your official privacy notice.)
-        </p>
-      </Modal>
-
-      <Modal
-        open={openTerms}
-        title="Terms of Use"
-        onClose={() => setOpenTerms(false)}
-        actions={
-          <button
-            onClick={() => setOpenTerms(false)}
-            className="px-3 py-2 rounded-md bg-[#4b4d9c] text-white text-sm font-semibold hover:opacity-95 transition"
-          >
-            Close
-          </button>
-        }
-      >
-        <h4 className="font-semibold">Terms of Use</h4>
-        <p>
-          Use of our site is subject to these Terms. Please read them carefully. (Add your full terms.)
-        </p>
-        <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
-          (Replace this with your full Terms of Use content.)
-        </p>
-      </Modal>
-
-      {/* Cookie banner shown site-wide for first-time users */}
-      <CookieBanner />
-    </>
+      </div>
+    </footer>
   );
-};
-
-export default Footer;
+}
