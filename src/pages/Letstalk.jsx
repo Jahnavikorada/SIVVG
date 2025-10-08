@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from 'react-hook-form';
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
-import Footer from "../components/Footer";
+
 
 
 const ContactSection = () => {
